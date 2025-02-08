@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import bestSellerImg1 from "../../assets/bestSeller1.jpg";
 import bestSellerImg2 from "../../assets/bestSeller2.jpg";
+import { toast } from "sonner";
+import ProductGrid from "./ProductGrid";
 
 const selectedProduct = {
   name: "Blazer",
@@ -58,6 +60,21 @@ const ProductDetails = () => {
     if (correspondingImage) {
       setMainImage(correspondingImage.url);
     }
+  };
+
+  const handleAddToCart = () => {
+    if (!selectedSize || !selectedColor) {
+      toast.error("Please select a size and color before adding to cart!", {
+        duration: 1500,
+      });
+      return;
+    }
+    setIsButtonDisabled(true);
+
+    setTimeout(() => {
+      toast.success("Product added to cart.", { duration: 1500 });
+      setIsButtonDisabled(false);
+    }, 500);
   };
 
   useEffect(() => {
@@ -182,8 +199,16 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            <button className="bg-black text-white py-2 px-6 rounded w-full mb-4">
-              ADD TO CART
+            <button
+              onClick={handleAddToCart}
+              disabled={isButtonDisabled}
+              className={`bg-black text-white py-2 px-6 rounded w-full mb-4 ${
+                isButtonDisabled
+                  ? "cursor-not-allowed opacity-50"
+                  : "hover:bg-gray-900"
+              } transition-all duration-200`}
+            >
+              {isButtonDisabled ? "Adding..." : "ADD TO CART"}
             </button>
 
             <div className="mt-10 text-gray-700">
