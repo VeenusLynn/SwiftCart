@@ -11,15 +11,20 @@ const selectedProduct = {
   brand: "Felicity",
   material: "Wool",
   sizes: ["XS", "S", "M", "L", "XL"],
-  colors: ["#8B8586", "#AACAD8"],
+  colors: [
+    { code: "#8B8586", name: "Gray" },
+    { code: "#AACAD8", name: "Soft Blue" },
+  ],
   images: [
     {
       url: bestSellerImg1,
       alt: "Blazer: Gray",
+      colorCode: "#8B8586",
     },
     {
       url: bestSellerImg2,
       alt: "Blazer: Soft Blue",
+      colorCode: "#AACAD8",
     },
   ],
 };
@@ -40,9 +45,25 @@ const ProductDetails = () => {
     }
   };
 
+  const handleThumbnailClick = (image) => {
+    setMainImage(image.url);
+    setSelectedColor(image.colorCode);
+  };
+
+  const handleColorClick = (color) => {
+    setSelectedColor(color.code);
+    const correspondingImage = selectedProduct.images.find(
+      (image) => image.colorCode === color.code
+    );
+    if (correspondingImage) {
+      setMainImage(correspondingImage.url);
+    }
+  };
+
   useEffect(() => {
     if (selectedProduct?.images?.length > 0) {
       setMainImage(selectedProduct.images[0].url);
+      setSelectedColor(selectedProduct.images[0].colorCode);
     }
   }, [selectedProduct]);
 
@@ -61,8 +82,8 @@ const ProductDetails = () => {
                   mainImage === image.url
                     ? "border-black "
                     : "border-gray-300 hover:cursor-pointer"
-                } transition-all`}
-                onClick={() => setMainImage(image.url)}
+                } transition-all duration-400`}
+                onClick={() => handleThumbnailClick(image)}
               />
             ))}
           </div>
@@ -87,7 +108,7 @@ const ProductDetails = () => {
                     ? "border-black "
                     : "border-gray-300 hover:cursor-pointer"
                 } transition-all`}
-                onClick={() => setMainImage(image.url)}
+                onClick={() => handleThumbnailClick(image)}
               />
             ))}
           </div>
@@ -110,14 +131,14 @@ const ProductDetails = () => {
                 {selectedProduct.colors.map((color) => (
                   <button
                     key={color}
-                    onClick={() => setSelectedColor(color)}
+                    onClick={() => handleColorClick(color)}
                     className={`w-8 h-8 rounded-full border ${
-                      selectedColor === color
+                      selectedColor === color.code
                         ? "border border-black transition-all duration-400"
                         : "border-gray-300 hover:cursor-pointer"
                     }`}
                     style={{
-                      backgroundColor: color,
+                      backgroundColor: color.code,
                     }}
                   ></button>
                 ))}
