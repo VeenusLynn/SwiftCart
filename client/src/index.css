@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@plugin 'tailwind-scrollbar';
+@plugin 'tailwind-scrollbar-hide';
+
 #root {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;

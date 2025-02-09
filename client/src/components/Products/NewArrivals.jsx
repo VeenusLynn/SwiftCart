@@ -173,20 +173,16 @@ const NewArrivals = () => {
           <button
             onClick={() => scroll("left")}
             disabled={!canScrollLeft}
-            className={`p-1 rounded-full ${
-              canScrollLeft
-                ? "bg-white text-black"
-                : "bg-gray-200 text-gray-400 cursor-no-drop"
+            className={`p-1 rounded-full bg-white ${
+              canScrollLeft ? "text-black" : "text-gray-400 cursor-no-drop"
             }`}
           >
             <FiChevronLeft className="text-3xl hover:text-4xl  transition-all" />
           </button>
           <button
             onClick={() => scroll("right")}
-            className={`p-1 rounded-full ${
-              canScrollRight
-                ? "bg-white text-black"
-                : "bg-gray-200 text-gray-400 cursor-no-drop"
+            className={`p-1 rounded-full bg-white ${
+              canScrollRight ? "text-black" : "text-gray-400 cursor-no-drop"
             }`}
           >
             <FiChevronRight className="text-3xl hover:text-4xl transition-all" />
@@ -196,7 +192,7 @@ const NewArrivals = () => {
         {/* scrollable content */}
         <div
           ref={scrollRef}
-          className={`container mx-auto overflow-x-scroll flex space-x-6 relative ${
+          className={`container pb-2 mx-auto overflow-x-scroll scrollbar-hide flex space-x-6 relative ${
             isDragging ? "cursor-grabbing" : "cursor-grab"
           }`}
           onMouseDown={handleOnMouseDown}

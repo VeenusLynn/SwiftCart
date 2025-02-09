@@ -4,14 +4,12 @@ import featured from "../../assets/collection4.jpg";
 
 const FeaturedCollection = () => {
   return (
-    <section className="py-16 px-4 lg:px-0 relative">
+    <section className="py-16 px-4 relative">
       <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center bg-gray-50 rounded-3xl relative overflow-hidden">
-        {/* Badge */}
         <div className="absolute top-0 left-0 h-10 w-full bg-black text-white text-center px-3 py-2 text-lg font-semibold uppercase tracking-wide ">
           Featured Collection
         </div>
 
-        {/* left side */}
         <div className="lg:w-1/2 p-8 text-center lg:text-left">
           <h2 className="text-lg font-semibold text-gray-700 mb-2 ">
             Style & Comfort
@@ -32,12 +30,11 @@ const FeaturedCollection = () => {
           </Link>
         </div>
 
-        {/* right side */}
         <div className="lg:w-1/2 ">
           <img
             src={featured}
             alt="featured collection"
-            className="w-full h-full md:h-100 object-cover object-[50%_80%] rounded-t-lg md:rounded-r-3xl md:rounded-t-none"
+            className="w-full h-full lg:h-100 object-cover object-[50%_80%] rounded-t-lg md:rounded-r-3xl md:rounded-t-none"
           />
         </div>
       </div>

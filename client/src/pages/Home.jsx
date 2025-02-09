@@ -5,6 +5,7 @@ import NewArrivals from "../components/Products/NewArrivals";
 import ProductDetails from "../components/Products/ProductDetails";
 import ProductGrid from "../components/Products/ProductGrid";
 import FeaturedCollection from "../components/Products/FeaturedCollection";
+import FeatureSection from "../components/Products/FeatureSection";
 
 const placeholderProducts = [
   {
@@ -67,14 +68,15 @@ const Home = () => {
       <h2 className="text-3xl text-center font-bold mb-4">Best Seller</h2>
       <ProductDetails />
 
+      <FeaturedCollection />
+      <FeatureSection />
+
       <div className="container mx-auto">
         <h2 className="text-3xl text-center font-bold mb-4">
           Top Wear For Women
         </h2>
         <ProductGrid products={placeholderProducts} />
       </div>
-
-      <FeaturedCollection />
     </div>
   );
 };

@@ -7,43 +7,34 @@ const GenderCollection = () => {
   return (
     <section className="py-16 px-4 lg:px-0">
       <div className="container mx-auto flex flex-col md:flex-row gap-8">
-        {/* Women's section */}
-        <div className="relative flex-1">
+        <div className="relative flex-1 rounded-xl">
           <img
             src={womenImg}
             alt="Women's Collection"
-            className="w-full h-[480px] object-cover object-top"
+            className="w-full h-[480px] object-cover object-top rounded-xl"
           />
-          <div className="absolute bottom-8 left-8 bg-white bg-opacity-90 p-4">
-            <h2 className="text-xl font-bold text-gray-900 mb-3">
-              Women's Collection
-            </h2>
-            <Link
-              to="/collections/all?gender=women"
-              className="text-gray-900 underline"
-            >
-              Shop now
-            </Link>
-          </div>
+
+          <Link
+            to="/collections/all?gender=women"
+            className="absolute bottom-4 left-4 bg-white bg-opacity-90 p-4 rounded-lg hover:bg-gray-100 text-xl font-bold text-gray-900 mb-3 hover:py-5 hover:px-6 transition-all duration-400"
+          >
+            Women's Collection
+          </Link>
         </div>
 
-        <div className="relative flex-1">
+        <div className="relative flex-1 rounded-xl">
           <img
             src={menImg}
             alt="Men's Collection"
-            className="w-full h-[480px] object-cover object-top"
+            className="w-full h-[480px] object-cover object-top rounded-xl "
           />
-          <div className="absolute bottom-8 left-8 bg-white bg-opacity-90 p-4">
-            <h2 className="text-xl font-bold text-gray-900 mb-3">
-              Men's Collection
-            </h2>
-            <Link
-              to="/collections/all?gender=men"
-              className="text-gray-900 underline"
-            >
-              Shop now
-            </Link>
-          </div>
+
+          <Link
+            to="/collections/all?gender=men"
+            className="absolute bottom-4 left-4 bg-white bg-opacity-90 p-4 rounded-lg hover:bg-gray-100 text-xl font-bold text-gray-900 mb-3 hover:py-5 hover:px-6 transition-all duration-400"
+          >
+            Men's Collection
+          </Link>
         </div>
       </div>
     </section>
