@@ -20,7 +20,7 @@ const FeatureSection = () => {
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
-          <div className="py-6 w-80 flex flex-col items-center shadow-sm bg-gray-50 rounded-lg">
+          <div className="py-6 w-full lg:w-80 flex flex-col items-center shadow-sm bg-gray-50 rounded-lg">
             <div className="p-4 rounded-full mb-4 bg-white shadow-sm">
               <HiShoppingBag className="text-3xl" />
             </div>
@@ -32,7 +32,7 @@ const FeatureSection = () => {
             </p>
           </div>
 
-          <div className="py-6 w-80 flex flex-col items-center shadow-sm bg-gray-50 rounded-lg">
+          <div className="py-6 w-full lg:w-80 flex flex-col items-center shadow-sm bg-gray-50 rounded-lg">
             <div className="p-4 rounded-full mb-4 bg-white shadow-sm">
               <HiArrowPathRoundedSquare className="text-3xl" />
             </div>
@@ -42,7 +42,7 @@ const FeatureSection = () => {
             </p>
           </div>
 
-          <div className="py-6 w-80 flex flex-col items-center shadow-sm bg-gray-50 rounded-lg">
+          <div className="py-6 w-full lg:w-80 flex flex-col items-center shadow-sm bg-gray-50 rounded-lg">
             <div className="p-4 rounded-full mb-4 bg-white shadow-sm">
               <HiOutlineCreditCard className="text-3xl" />
             </div>
