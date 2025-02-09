@@ -21,6 +21,8 @@ const Footer = () => {
 
           <form className="flex">
             <input
+              name="email"
+              autoComplete="on"
               type="email"
               placeholder="Enter your email"
               required
@@ -122,7 +124,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      {/* Footer Bottom */}
+
       <div className="container mt-12 mx-auto px-4 lg:px-0 border-t border-gray-200 pt-6">
         <p className="text-gray-700 text-sm trackig-tighter text-center">
           © 2023 SwiftCart. All rights reserved.

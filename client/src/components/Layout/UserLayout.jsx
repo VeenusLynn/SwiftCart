@@ -5,11 +5,12 @@ import { Outlet } from "react-router-dom";
 
 const UserLayout = () => {
   return (
-    <div className="pt-[109px]">
-      <div className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
-        <Header />
-      </div>
-
+    // <div className="pt-[109px]">
+    //   <div className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+    //     <Header />
+    //   </div>
+    <div>
+      <Header />
       <main>
         <Outlet />
       </main>

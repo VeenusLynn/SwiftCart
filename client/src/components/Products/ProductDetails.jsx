@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import bestSellerImg1 from "../../assets/bestSeller1.jpg";
 import bestSellerImg2 from "../../assets/bestSeller2.jpg";
+import productImg1 from "../../assets/product1.jpg";
+import productImg2 from "../../assets/product2.jpg";
+import productImg3 from "../../assets/product3.jpg";
+import productImg4 from "../../assets/product4.jpg";
 import { toast } from "sonner";
 import ProductGrid from "./ProductGrid";
 
@@ -30,6 +34,32 @@ const selectedProduct = {
     },
   ],
 };
+const similarProducts = [
+  {
+    _id: 1,
+    name: "product 1",
+    price: 160,
+    images: [{ url: productImg1 }],
+  },
+  {
+    _id: 2,
+    name: "product 2",
+    price: 160,
+    images: [{ url: productImg2 }],
+  },
+  {
+    _id: 3,
+    name: "product 3",
+    price: 160,
+    images: [{ url: productImg3 }],
+  },
+  {
+    _id: 4,
+    name: "product 4",
+    price: 160,
+    images: [{ url: productImg4 }],
+  },
+];
 
 const ProductDetails = () => {
   const [mainImage, setMainImage] = useState("");
@@ -117,7 +147,7 @@ const ProductDetails = () => {
           <div className="md:hidden flex overscroll-x-scroll space-x-4 mb-4">
             {selectedProduct.images.map((image, index) => (
               <img
-                key={index}
+                key={image.colorCode}
                 src={image.url}
                 alt={image.alt || `Thumbnai ${index}`}
                 className={`w-20 h-20 object-cover object-top rounded-lg  border ${
@@ -134,20 +164,21 @@ const ProductDetails = () => {
             <h1 className="text-2xl md:text-3xl font-semibold mb-2">
               {selectedProduct.name}
             </h1>
-            <p className="text-lg text-gray-600 mb-1 line-through">
-              {selectedProduct.originalPrice &&
-                `$${selectedProduct.originalPrice}`}
-            </p>
-            <p className="text-xl text-gray-500 mb-2">
-              ${selectedProduct.price}
-            </p>
+            <div className="flex items-center mb-4">
+              {selectedProduct.originalPrice && (
+                <p className="text-lg text-gray-600 line-through mr-2">
+                  ${selectedProduct.originalPrice}
+                </p>
+              )}
+              <p className="text-xl text-gray-500">${selectedProduct.price}</p>
+            </div>
             <p className="text-gray-600 mb-4">{selectedProduct.description}</p>
             <div className="mb-4 ">
               <p className="text-gray-700">Color: </p>
               <div className="flex gap-2 mt-2">
                 {selectedProduct.colors.map((color) => (
                   <button
-                    key={color}
+                    key={color.code}
                     onClick={() => handleColorClick(color)}
                     className={`w-8 h-8 rounded-full border ${
                       selectedColor === color.code
@@ -202,7 +233,7 @@ const ProductDetails = () => {
             <button
               onClick={handleAddToCart}
               disabled={isButtonDisabled}
-              className={`bg-black text-white py-2 px-6 rounded w-full mb-4 ${
+              className={`bg-black text-white py-2 px-6 rounded w-full mb-2 ${
                 isButtonDisabled
                   ? "cursor-not-allowed opacity-50"
                   : "hover:bg-gray-900"
@@ -222,17 +253,42 @@ const ProductDetails = () => {
                       </td>
                       <td className="py-2 px-4">{selectedProduct.brand}</td>
                     </tr>
-                    <tr className="bg-gray-50 ">
+                    <tr className="bg-gray-50 border-b border-gray-200">
                       <td className="py-2 px-4 font-medium text-gray-700">
                         Material
                       </td>
                       <td className="py-2 px-4">{selectedProduct.material}</td>
+                    </tr>
+                    <tr className="bg-gray-50 border-b border-gray-200">
+                      <td className="py-2 px-4 font-medium text-gray-700">
+                        Sizes
+                      </td>
+                      <td className="py-2 px-4">
+                        {selectedProduct.sizes.join(", ")}
+                      </td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="py-2 px-4 font-medium text-gray-700">
+                        Colors
+                      </td>
+                      <td className="py-2 px-4">
+                        {selectedProduct.colors
+                          .map((color) => color.name)
+                          .join(", ")}
+                      </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="mt-20">
+          <h2 className="text-2xl text-center font-medium mb-4">
+            You May Also Like
+          </h2>
+          <ProductGrid products={similarProducts} />
         </div>
       </div>
     </div>
