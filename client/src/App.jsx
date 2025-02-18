@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
+import Collections from "./pages/Collections";
+import ProductDetails from "./components/Products/ProductDetails";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="collections/:collection" element={<Collections />} />
+            <Route path="product/:id" element={<ProductDetails />} />
           </Route>
           <Route path="" element={<Login />}></Route>
           <Route>{/* Admin Layout */}</Route>

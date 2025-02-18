@@ -16,7 +16,7 @@ const GenderCollection = () => {
 
           <Link
             to="/collections/all?gender=women"
-            className="absolute bottom-4 left-4 bg-white bg-opacity-90 p-4 rounded-lg hover:bg-gray-100 text-xl font-bold text-gray-900 mb-3 hover:py-5 hover:px-6 transition-all duration-400"
+            className="absolute bottom-4 left-4 bg-white bg-opacity-90 p-4 rounded-lg hover:bg-gray-100 text-xl font-bold text-gray-900 mb-3 hover:scale-105 transition-all duration-400"
           >
             Women's Collection
           </Link>
@@ -31,7 +31,7 @@ const GenderCollection = () => {
 
           <Link
             to="/collections/all?gender=men"
-            className="absolute bottom-4 left-4 bg-white bg-opacity-90 p-4 rounded-lg hover:bg-gray-100 text-xl font-bold text-gray-900 mb-3 hover:py-5 hover:px-6 transition-all duration-400"
+            className="absolute bottom-4 left-4 bg-white bg-opacity-90 p-4 rounded-lg hover:bg-gray-100 text-xl font-bold text-gray-900 mb-3 hover:scale-105 transition-all duration-400"
           >
             Men's Collection
           </Link>

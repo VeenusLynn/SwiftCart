@@ -23,7 +23,6 @@ const Navbar = () => {
   return (
     <>
       <nav className="container mx-auto flex items-center justify-between py-4 px-6">
-        {/* Left Side - LOGO */}
         <div>
           <Link to="/" className="text-2xl font-medium">
             SwiftCart
@@ -32,7 +31,7 @@ const Navbar = () => {
         {/* Center - Navigation Links */}
         <div className="hidden md:flex space-x-6">
           <Link
-            to="#"
+            to="/collections/all"
             className="text-gray-700 hover:text-black text-sm font-medium uppercase"
           >
             Men
